@@ -62,7 +62,7 @@ function drawElements(ind, person){
 	
 
 	var card = document.createElement('div');
-	card.className = "card shadow"
+	card.className = "card shadow grafica"
 
 	var header = document.createElement('div');
 	header.className = "card-header"
