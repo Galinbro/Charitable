@@ -17,14 +17,13 @@
             </a>
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <!-- <a class="nav-link" href="#" style="color:#FFF; font-weight:bold; font-size:30px;">Charitable</a> -->
               </li>
             </ul>
       </nav>
 
       
       <div class="row">
-        <div class="column justify-content-center container">
+        <div class="column justify-content-center container" id="1">
             <div class="card shadow" style="border:0!important;">
               <div class="card-header" style="padding:0;background-image: url('https://atos.net/wp-content/uploads/2020/03/ignite-banner.jpg'); background-size: cover; height: 150px; ">
                 <h1><span class="align-middle">Charitable</span></h4>
@@ -35,8 +34,6 @@
                   <input type="text" class="form-control" id="Name" placeholder="Your name">
                 </div>
                 <div class="row">
-
-                
                   <div class="form-group select column">
                     <label for="Project">Project:</label>
                     <select class="form-control " name="Project" id="Project">
@@ -56,7 +53,13 @@
             </div>
         </div>
       
-      <div class="column container grafica" id="0"></div>
+      
+      <div class="column container grafica justify-content-center" id="0" style="display: none;">
+        <div class=" row justify-content-center">
+          <button type="submit" class="btn btn-primary btn-lg" id="again">Register again</button>
+        </div>
+      </div>
+      
     </div>
 <!--
 
@@ -93,6 +96,18 @@
       <!--  Save and confirmation -->
       <script type="text/javascript">
 
+        let form = document.getElementById("1");
+        let graph = document.getElementById("0");
+        let btn_again = document.getElementById("again");
+
+        $("#again").click(function(){
+          console.log("clic")
+          form.style.display = "block";
+          graph.style.display = "none";
+          btn_again.display = "none";
+        });
+
+
         $("#Save").click(function(){
           $("#Save").attr("disabled",true)
           var Name = $("#Name").val()
@@ -128,10 +143,14 @@
                   $("#Save").attr("disabled",false)
                   $("#confirmationModal").modal("toggle")
                   $("#form").trigger("reset")
+
+
                   document.getElementById('Name').value = ""
-                  
                   document.getElementById('Project').selectedIndex = 0
-              
+                  
+                  form.style.display = "none";
+                  graph.style.display = "block";
+                  btn_again.display = "block";
                   console.log("clic")
                   updatePie()
                   
