@@ -27,26 +27,31 @@
         <div class="column justify-content-center container">
             <div class="card shadow" style="border:0!important;">
               <div class="card-header" style="padding:0;background-image: url('https://atos.net/wp-content/uploads/2020/03/ignite-banner.jpg'); background-size: cover; height: 150px; ">
-                <h4><span class="align-middle">Charitable</span></h4>
+                <h1><span class="align-middle">Charitable</span></h4>
               </div>
               <div class="card-body">
                 <div class="form-group">
                   <label for="Name">Name:</label>
-                  <input type="text" class="form-control" id="Name" placeholder="Emilio Galindo">
+                  <input type="text" class="form-control" id="Name" placeholder="Your name">
                 </div>
-                  <div class="form-group">
-                    <label for="">Project</label>
-                    <select class="form-control form-control-lg" name="Project" id="Project">
+                <div class="row">
+
+                
+                  <div class="form-group select column">
+                    <label for="Project">Project:</label>
+                    <select class="form-control " name="Project" id="Project">
                       <option selected disabled>Select an option:</option>
                       <option value="HopeTech">Hope Tech</option>
                       <option value="TechFest">Tech Fest</option>
                       <option value="Party">Party</option>
                     </select>
+                    
                   </div>
-                  <div class="row justify-content-center">
+                  <div class=" column justify-content-center">
                     <button type="submit" class="btn btn-primary btn-lg" id="confirmation">Register</button>
                   </div>
-                </form>
+                </div>
+                
               </div>
             </div>
         </div>
@@ -123,8 +128,13 @@
                   $("#Save").attr("disabled",false)
                   $("#confirmationModal").modal("toggle")
                   $("#form").trigger("reset")
+                  document.getElementById('Name').value = ""
+                  
+                  document.getElementById('Project').selectedIndex = 0
+              
                   console.log("clic")
                   updatePie()
+                  
                 });
               }
             })

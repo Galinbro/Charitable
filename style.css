@@ -1,8 +1,8 @@
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
-
 
 .btn-primary{
   background-color: #0066A1;
@@ -10,8 +10,8 @@ html, body {
 }
 
 .btn-primary:hover{
-  background-color: #0066A1;
-  border-color: #0066A1;
+  background-color: #024d79;
+  border-color: #024d79;
 }
 
 
@@ -20,9 +20,7 @@ img {
   padding: 20px 0 20px 20px;
 }
 
-/* style="color:#FFF;font-weight:bold;text-align:center;margin-top:55px;letter-spacing: 10px;" */
-
-h4 {
+h1 {
   color:#FFF;
   font-weight:bold;
   text-align:center;
@@ -48,14 +46,37 @@ h4 {
   clear: both;
 }
 
-
-
 .card {
   margin: 0 10px 0 10px;
 }
 
 .grafica {
   width: 70vh;
-  margin-left: 0px;
+  
   padding-left: 0px;
+  
+  margin: 34px 36px 0 0;
+}
+
+.form-control {
+  border-radius: .4em;
+  /* border-color: #0066A1; */
+  border-width: 0px; 
+  background-color: #b2d9eed7;
+  border-right-width: 10px;
+  border-color: #b2d9eed7;
+}
+
+.select {
+  width: 50%;
+  padding-left: 0px;
+}
+.justify-content-center{
+  margin-top: 33px;
+}
+
+.btn {
+  height: 35px;
+  font-size: inherit;
+  padding-top: 4px;
 }

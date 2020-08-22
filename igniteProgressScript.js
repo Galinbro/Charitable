@@ -110,14 +110,16 @@ function drawPie(id, person, ind){
 	console.log(data)
 	var densityData = {
 		label: '# Igniters',
-		data: [data["Hope_Tech"], data['Tech_Fest'], data['Party']]
+		data: [data["Hope_Tech"], data['Tech_Fest'], data['Party']],
+		backgroundColor: 'rgba(178, 217, 238, 0.84)'
 	  };
 
 	chart = new Chart(document.getElementById(id), {
 	    type: 'bar',
 	    data: {
 			labels: ["Hope Tech", "Tech Fest", "Party"],
-			datasets: [densityData]
+			datasets: [densityData],
+			
 		},
 		options: {
 			scales: {
@@ -128,7 +130,8 @@ function drawPie(id, person, ind){
 					}
 				}]
 			}
-		}
+		},
+		
 	});
 }
 
