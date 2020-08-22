@@ -2,6 +2,7 @@
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn-primary{
@@ -26,6 +27,7 @@ h1 {
   text-align:center;
   margin-top:55px;
   letter-spacing: 10px;
+  font-weight: 700;
 }
 
 .column {
