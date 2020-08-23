@@ -5,16 +5,6 @@ html, body {
   font-family: 'Poppins', sans-serif;
 }
 
-.btn-primary{
-  background-color: #0066A1;
-  border-color: #0066A1;
-}
-
-.btn-primary:hover{
-  background-color: #024d79;
-  border-color: #024d79;
-}
-
 
 img {
   width: 50%;
@@ -84,7 +74,7 @@ h1 {
 .form {
   background-color: rgba(0,102,161,0.5);
   
-  transition: 1s ease;
+  transition: 2s ease;
 }
 
   
