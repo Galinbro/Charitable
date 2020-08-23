@@ -107,6 +107,16 @@
   
   <body style="background-color:#0066A1;">
 
+    <nav class="navbar" style="background-color:transparent;display: none" id="navbar">
+          <a class="navbar-brand" href="#">
+            <img src="https://atos.net/wp-content/themes/atos/images/atos-logo-white-menu-bar.png" alt="">
+          </a>
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+            </li>
+          </ul>
+    </nav>
+
 
     <div id="wrapper_top">
       <div id="#content"
@@ -151,10 +161,10 @@
       <div id="wrapper_bottom"></div>
     </div>
       
-      
-        <div class="column container grafica justify-content-center" id="0" style="display: none;">
+      <div class="row">
+        <div class="col container grafica justify-content-center" id="0" style="display: none;">
           <div class=" row justify-content-center">
-            <button type="submit" class="btn btn-primary btn-lg" id="again">Register again</button>
+            <button type="submit" class="btn btn-outline-light btn-lg" id="again">Register again</button>
           </div>
         </div>
       
@@ -194,6 +204,7 @@
       <!-- action btns & variables -->
       <script>
         let form = document.getElementById("1");
+        let navbar = document.getElementById("navbar");;
         let graph = document.getElementById("0");
         let btn_again = document.getElementById("again");
         let carousel = document.getElementById("wrapper_top");
@@ -202,6 +213,7 @@
           console.log("clic")
           carousel.style.display = "block";
           graph.style.display = "none";
+          navbar.style.display = "none";
           btn_again.display = "none";
         });
 
@@ -252,6 +264,7 @@
                   
                   carousel.style.display = "none";
                   graph.style.display = "block";
+                  navbar.style.display = "block";
                   btn_again.display = "block";
                   console.log("clic")
                   updatePie()
