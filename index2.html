@@ -21,29 +21,115 @@
       
         /* Full height */
         height: 100%; 
-      
+        position: relative;
         /* Center and scale the image nicely */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
       }
-      </style>
+
+      .bg2 {
+        /* The image used */
+        background-image: url("https://atos.net/wp-content/uploads/2018/06/atos-btn-nl-abf-1400x500px.jpg");
+      
+        /* Full height */
+        height: 100%; 
+        position: absolute;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      #wrapper_top {
+        height: 100%; 
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      #wrapper_bottom {
+        top: 0;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      #bar {
+        animation: slide-left 3s;
+      }
+      
+      #formBtn {
+        animation: slide-left 3s;
+      }
+      @keyframes slide-left {
+        from {
+          margin-left: 100%;
+        }
+      
+        to {
+          margin-left: 0%;
+        }
+      }
+      .typewriter h3 {
+        animation: updown 2s ease  
+      }
+
+      .updow h5 {
+        animation: downup 2s linear  
+      }
+      
+      @keyframes updown {
+        0% {
+          transform: translateY(-100%);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      } 
+
+      @keyframes downup {
+        0% {
+          transform: translateY(100%);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      } 
+    </style>
   </head>
   
   <body style="background-color:#0066A1;">
-    <!-- <nav class="navbar" style="background-color:transparent;">
-            <a class="navbar-brand" href="#">
-              <img src="https://atos.net/wp-content/themes/atos/images/atos-logo-white-menu-bar.png" alt="">
-            </a>
-      </nav> -->
-      <!-- https://atos.net/wp-content/uploads/2018/06/atos-btn-nl-abf-1400x500px.jpg -->
-      <div class="bg" id="carousel"></div>
-      <div id='wrapper_top' class="bg">
-          <div id='content'>YOUR CONTENT</div>
-          <div id='wrapper_bottom'></div>
+
+      <div id="wrapper_top">
+        <div id="#content"
+            style="
+                    position: absolute;
+                    z-index: 2;
+                    color: #ffffff;">
+          <img src="https://atos.net/wp-content/themes/atos/images/atos-logo-white-menu-bar.png" alt="">
+        </div>
+        <div class="carousel-caption d-none d-md-block text-left" style="bottom: 50% !important; right: 0%; left: 60%;">
+          <div class="typewriter">
+            <h3>Charitable</h3>
+          </div>
+          <div id="bar" style="width: 100%; height: 2.5px; background: white;"></div>
+          <div class="updow">
+            <h5>More text</h5>
+            <button type="button" class="btn btn-outline-light" id="formBtn">Register</button>
+          </div>
+        </div>
+        <div id="wrapper_bottom"></div>
       </div>
 
-      <div class="row fade">
+
+      <div class="row" style="display: none;">
         <div class="column justify-content-center container">
             <div class="card shadow" style="border:0!important;">
               <div class="card-header" style="padding:0;background-image: url('https://atos.net/wp-content/uploads/2020/03/ignite-banner.jpg'); background-size: cover; height: 150px; ">
@@ -206,39 +292,45 @@
         })
       
       </script>
-      <!-- handmade Carousel -->
-      <script>
-        var count = 0;
-        var url;
-        setInterval(function(){
-          switch (count%5) {
-            case 0:
-              url = 'https://atos.net/wp-content/uploads/2016/06/Critical-systems-press-release-image-GettyImages-169263628Light.jpg'
-              break;
-            case 1:
-              url = 'https://atos.net/wp-content/uploads/2016/10/atos-telecommunications.png'
-              break;
-            case 2:
-              url = 'https://atos.net/wp-content/uploads/2018/06/atos-btn-nl-abf-1400x500px.jpg'
-              break;
-            case 3:
-              url = 'https://atos.net/wp-content/uploads/2017/07/Banner_sequana_night_stfc_1400-500-1.jpg'
-              break;
-            case 4:
-              url = 'https://atos.net/wp-content/uploads/2018/09/atos-why-so-many-cloud-migrations-fall-short-in-financial-services.jpg'
-              break;
-          }
-          // $("#carousel").fadeOut();
-          // document.getElementById('carousel').style.backgroundImage="url(" + url + ")"; // specify the image path here
-          // $("#carousel").fadeIn("slow");
-          $("#wrapper_top").fadeOut('slow').queue(function() {
-              $("#wrapper_top").style.backgroundImage="url(" + url + ")"; // specify the image path here
-              $("#wrapper_top").fadeIn('slow');
-              $(this).dequeue();
+      <!-- handmade carousel -->
+      <script id="jsbin-javascript">
+        // Just a help to change the background-image
+        var changeImage = function(id, image){
+          $(id).css('background-image', 'url('+image+')');
+        };
+        
+        //Auto change Background Image over time
+        $(document).ready(function() {
+            var images = [
+                            'https://atos.net/wp-content/uploads/2016/06/Critical-systems-press-release-image-GettyImages-169263628Light.jpg',
+                            'https://atos.net/wp-content/uploads/2018/09/atos-why-so-many-cloud-migrations-fall-short-in-financial-services.jpg',
+                            'https://atos.net/wp-content/uploads/2018/06/atos-btn-nl-abf-1400x500px.jpg',
+                            'https://atos.net/wp-content/uploads/2017/07/Banner_sequana_night_stfc_1400-500-1.jpg',
+                            'https://atos.net/wp-content/uploads/2016/10/atos-telecommunications.png'
+                          ];
+            // Your pretty counter
+            var i = 0;
+            
+            // Init sequence, loading the first image
+            $("#wrapper_bottom").css("opacity", 0);
+            changeImage('#wrapper_bottom', images[i]);
+            changeBackground();
+            
+            // Your function
+            // TODO: you should declare this outside of this scope
+            function changeBackground() {
+              $('#wrapper_bottom')
+                .animate({"opacity": 1}, 2000, function(){
+                  changeImage('#wrapper_top', images[i], 1);
+                  if (++i >= images.length) { i = 0; } 
+                  $("#wrapper_bottom").css("opacity", 0);
+                  changeImage('#wrapper_bottom', images[i]);
+              });
+            }
+          
+            var refreshIntervalId = setInterval(changeBackground, 3000);
           });
-          count++;
-        }, 2000);
-      </script>
+        </script>
   </body>
 </html>
 <html><head><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"><meta name="Robots" content="NOINDEX " /></head><body></body>
