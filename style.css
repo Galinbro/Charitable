@@ -80,3 +80,24 @@ h1 {
   font-size: inherit;
   padding-top: 4px;
 }
+
+.form {
+  background-color: rgba(0,102,161,0.5);
+  
+  transition: 1s ease;
+}
+
+  
+  .form:hover {
+    border-top-left-radius: 0.8em;
+    border-bottom-left-radius: 0.8em;
+    transition: 1s ease;
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+    
+  }
+
+.typewriter {
+  padding-left: 15px;  
+}
