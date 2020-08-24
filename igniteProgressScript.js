@@ -64,9 +64,9 @@ function drawElements(ind, person){
 	var card = document.createElement('div');
 	card.className = "card shadow grafica"
 
-	var header = document.createElement('div');
-	header.className = "card-header"
-	header.innerHTML += "Graficaishon"
+	// var header = document.createElement('div');
+	// header.className = "card-header"
+	// header.innerHTML += "Graficaishon"
 
 	var body = document.createElement('div');
 	body.className = "card-body"
@@ -81,7 +81,7 @@ function drawElements(ind, person){
 
 	container.appendChild(row);
 	body.appendChild(container);
-	card.appendChild(header);
+	// card.appendChild(header);
 	card.appendChild(body);
 	rowFirst.appendChild(card);
 
@@ -96,7 +96,7 @@ function drawElementPie(id, person, ind){
 
 	var canvas = document.createElement('canvas');
 	canvas.id = id;
-
+	canvas.setAttribute("height", "350");
 	col.appendChild(canvas);
 
 	document.getElementById(names[ind]).appendChild(col);
@@ -122,6 +122,8 @@ function drawPie(id, person, ind){
 			
 		},
 		options: {
+			responsive: true,
+			maintainAspectRatio: false,
 			scales: {
 				yAxes: [{
 					ticks: {
