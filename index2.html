@@ -241,7 +241,7 @@
     <!-- End logo -->
 
     <!-- Start Form & title  -->
-      <div class="form carousel-caption d-none d-md-block text-left" style="bottom: 50% !important; right: 0%; left: 50%;">
+      <div class="form carousel-caption d-none d-md-block text-left" style="bottom: 50% !important; right: 0%; left: 50%;" id="carousel_content">
       <!-- Start title -->
         <div class="typewriter">
           <h3>Charitable</h3>
@@ -278,7 +278,7 @@
             </div>
           </div>
           <div class="row justify-content-center" style="margin-top: 0px !important; margin-bottom: -20px;">
-            <button type="button" class="btn btn-outline-light btn-lg btn-block" data-toggle="collapse" data-target="#demo"><i class="fas fa-angle-down"></i></button>
+            <button type="button" class="btn btn-outline-light btn-lg btn-block" data-toggle="collapse" data-target="#demo" id="toggle_colapse"><i class="fas fa-angle-down"></i></button>
             <div id="demo" class="collapse">
               <div class="row">
                 <div class="col container grafica justify-content-center" id="0">
@@ -506,7 +506,15 @@
         let btn_again = document.getElementById("again");
         let carousel = document.getElementById("wrapper_top");
 
-        
+        var toogle = true
+        $("#toggle_colapse").click(function(){
+          console.log("clic")
+          if (toogle)
+            $('#carousel_content').css('bottom', '15%');
+          else
+            $('#carousel_content').css('bottom', '50%');
+          toogle = !toogle
+        })
       </script>
     <!-- Start action btns & variables -->
 
