@@ -16,7 +16,14 @@
         font-family: 'Poppins', sans-serif;
         height: 100%
       }
-      
+      #gg {
+      opacity: 0;
+      -webkit-transition: all 1.4s ease-in-out;
+      -moz-transition: all 1.4s ease-in-out;
+      -ms-transition: all 1.4s ease-in-out;
+      -o-transition: all 1.4s ease-in-out;
+      transition: all 1.4s ease-in-out;
+      }
       .bg {
         /* The image used */
         background-image: url("https://atos.net/wp-content/uploads/2018/06/atos-btn-nl-abf-1400x500px.jpg");
@@ -105,8 +112,7 @@
           transform: translateY(0);
         }
       }
-      
-      
+     
 img {
   width: 50%;
   padding: 20px 0 20px 20px;
@@ -146,8 +152,7 @@ h1 {
   width: 70vh;
   
   padding-left: 0px;
-  
-  /* margin: 34px 36px 0 0; */
+
 }
 
 .form-control {
@@ -256,7 +261,7 @@ h1 {
                 <input type="text" class="form-control" id="Name" placeholder="Your name" style="width: 90%;">
               </div>
             </div>
-            <!-- <div class="col"></div> -->
+            
           </div>
           <div class="row">
             <div class="form-group col">
@@ -284,7 +289,7 @@ h1 {
       
       </div>
 
-      <div class="carousel-caption d-none d-md-block text-left" style="bottom: 20% !important; right: 60%; left: 0%; visibility:hidden;" id="gg">
+      <div class="carousel-caption d-none d-md-block text-left" style="bottom: 20% !important; right: 60%; left: 0%;" id="gg">
         <div class="col container grafica carousel-caption" id="0"></div>
       </div>
     
@@ -400,9 +405,6 @@ h1 {
           var card = document.createElement('div');
           card.className = "card shadow grafica"
 
-          // var header = document.createElement('div');
-          // header.className = "card-header"
-          // header.innerHTML += "Graficaishon"
 
           var body = document.createElement('div');
           body.className = "card-body"
@@ -518,17 +520,17 @@ h1 {
 
       <script type="text/javascript">
 
+        // show or hide graph
         $("#show").click(function(){
           let graph = document.getElementById("gg");
-        
-
-          if (graph.style.visibility == 'hidden'){
-             console.log("hola");
-             
-             graph.style.visibility = 'visible';
-            
-          } else {
-            graph.style.visibility = 'hidden';
+          let btn = document.getElementById("show");
+          if ($(graph).css('opacity') == 0){
+            $(graph).css('opacity', 1);
+            $(btn).html("Hide graph");
+          } 
+          else {
+            $(graph).css('opacity', 0);
+            $(btn).html("Show graph");
           }
         })
 
