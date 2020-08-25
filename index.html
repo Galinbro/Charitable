@@ -224,17 +224,6 @@ h1 {
   
   <body style="background-color:#0066A1;">
 
-    <nav class="navbar" style="background-color:transparent;display: none" id="navbar">
-          <a class="navbar-brand" href="#">
-            <img src="https://atos.net/wp-content/themes/atos/images/atos-logo-white-menu-bar.png" alt="">
-          </a>
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-            </li>
-          </ul>
-    </nav>
-
-
     <div id="wrapper_top">
       <div id="#content"
           style="position: absolute;z-index: 2;color: #ffffff;">
@@ -257,8 +246,8 @@ h1 {
             
             <div class="col">
               <div class="form-group">
-                <label for="Name">Name:</label>
-                <input type="text" class="form-control" id="Name" placeholder="Your name" style="width: 90%;">
+                <label for="Name">Email:</label>
+                <input type="email" class="form-control" id="Name" placeholder="Enter your email" style="width: 90%;">
               </div>
             </div>
             
@@ -270,7 +259,6 @@ h1 {
                 <option selected disabled>Select an option:</option>
                 <option value="HopeTech">Hope Tech</option>
                 <option value="TechFest">Tech Fest</option>
-                <option value="Party">Party</option>
               </select>
               
             </div>
@@ -313,7 +301,7 @@ h1 {
           <div class="modal-content">
 
             <div class="modal-body">
-              <h3 style="text-align:center;">Are you sure your name is <span id="nameConfirmation"></span>? </h3>
+              <h3 style="text-align:center;">Are you sure your email is <span id="nameConfirmation"></span>? </h3>
               <br>
               <div class="row justify-content-center">
                 <div class="col-4">
@@ -448,14 +436,14 @@ h1 {
           console.log(data)
           var densityData = {
             label: '# Igniters',
-            data: [data["Hope_Tech"], data['Tech_Fest'], data['Party']],
+            data: [data["Hope_Tech"], data['Tech_Fest']],
             backgroundColor: 'rgba(178, 217, 238, 0.84)'
             };
 
           chart = new Chart(document.getElementById(id), {
               type: 'bar',
               data: {
-              labels: ["Hope Tech", "Tech Fest", "Party"],
+              labels: ["Hope Tech", "Tech Fest"],
               datasets: [densityData],
               
             },
@@ -506,7 +494,7 @@ h1 {
             data[value] = data[value] + 1
           });
           console.log(data)
-          chart.data.datasets[0].data = [data["Hope_Tech"], data['Tech_Fest'], data['Party']]
+          chart.data.datasets[0].data = [data["Hope_Tech"], data['Tech_Fest']]
           chart.update();  
         }
 
@@ -514,9 +502,21 @@ h1 {
       </script>
     <!-- End igniteProgressScript.js -->
 
-      <!-- action btns & variables -->
-      
-      <!--  Save and confirmation -->
+    <!-- action btns & variables -->
+      <script>
+        var errorMsg = "";
+        let submitBtn = document.getElementById("confirmation");
+
+        $('#Project').change(function(){
+          submitBtn.style.display = 'block';
+        })
+
+        function validateEmail(email) {
+          const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(email);
+        }
+      </script>  
+    <!--  Save and confirmation -->
 
       <script type="text/javascript">
 
@@ -543,12 +543,10 @@ h1 {
             var project = "Hope_Tech"
           }else if (project == "TechFest") {
             var project = "Tech_Fest"
-          }else if (project == "Party") {
-            var project = "Party"
           }
           var Completed_Date = new Date();
 
-          if ((Name != null) && (project != null)) {
+          if ((Name != null && Name.replace(/\s/g, '') != "" && validateEmail(Name)) && (project != null)) {
             var url = 'https://script.google.com/macros/s/AKfycbz3CCefH_vusIwDE6SFIfyBZs0WxfIzhqEw4JGufoz3lpZm2xA/exec'
             var jqxhr = $.ajax({
               url: url,
@@ -582,7 +580,13 @@ h1 {
               }
             })
           }else {
-            swal("ERROR!", "You need to complete all the fields", "error");
+            if (project == null && (Name == null || Name.replace(/\s/g, '') == "" || validateEmail(Name)))
+              errorMsg = "Please complete all the fields "
+            else if (project == null)
+              errorMsg = "Please select a project to participate";
+            else
+              errorMsg = "Please enter a valid email"
+            swal("ERROR!", errorMsg, "error");
             $("#Save").attr("disabled",false)
           }
 
@@ -599,15 +603,19 @@ h1 {
             var project = "Hope_Tech"
           }else if (project == "Practical") {
             var project = "Tech_Fest"
-          }else if (project == "SoftSkill") {
-            var project = "Party"
           }
 
-          if ((Name != null) && (project != null)) {
+          if ((Name != null && Name.replace(/\s/g, '') != "") && (project != null)) {
             $("#nameConfirmation").html(Name)
             $("#confirmationModal").modal("toggle")
           }else {
-            swal("ERROR!", "You need to complete all the fields", "error")
+            if (project == null && (Name == null || Name.replace(/\s/g, '') == "" || validateEmail(Name)))
+              errorMsg = "Please complete all the fields "
+            else if (project == null)
+              errorMsg = "Please select a project to participate";
+            else
+              errorMsg = "Please enter a valid email"
+            swal("ERROR!", errorMsg, "error");
           }
 
           return false
