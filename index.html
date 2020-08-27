@@ -232,7 +232,7 @@ h1 {
       
       
       
-      <div class="form carousel-caption d-none d-md-block text-left" style="bottom: 50% !important; right: 0%; left: 50%;">
+      <div class="form carousel-caption d-none d-md-block text-left" style="bottom: 20% !important; right: 0%; left: 50%;">
         
         
         <div class="typewriter">
@@ -242,7 +242,18 @@ h1 {
         <div id="bar" style="width: 100%; height: 2.5px; background: white;"></div>
         
         <div class="updow" style="margin-top: 20px;">  
-          <div class="row mt-10">
+          <div class="row">
+            <div class="col" style="width: 50%;">
+              <label for="fname">First name:</label>
+              <input type="text" class="form-control" id="fname" placeholder="Enter your first name"> 
+            </div>
+            <div class="col" style="width: 50%;">
+              <label for="lname">Last name:</label>
+              <input type="text" class="form-control" id="lname" placeholder="Enter your last name" > 
+            </div>
+           
+          </div>
+          <div class="row mt-10" style="padding-top: 10px;">
             
             <div class="col">
               <div class="form-group">
@@ -255,13 +266,14 @@ h1 {
           <div class="row">
             <div class="form-group col">
               <label for="Project">Project:</label>
-              <select class="form-control " name="Project" id="Project">
+              <select class="form-control " name="Project" id="Project" onchange="desc()">
                 <option selected disabled>Select an option:</option>
                 <option value="HopeTech">Hope Tech</option>
                 <option value="TechFest">Tech Fest</option>
               </select>
               
             </div>
+            
             <div class="col justify-content-center">
               <button type="submit" class="btn btn-outline-light btn-lg" id="confirmation">Register</button>
             </div>
@@ -269,7 +281,9 @@ h1 {
               <button type="submit" class="btn btn-outline-light btn-lg" id="show">Show graph</button>
             </div>
           </div>
-
+          <div class="row" id="pdesc" style="width: 70%;">
+            <p id="description" style="padding-left:20px; font-weight: bold;">Select a project to view its description</p>
+          </div>
 
           
       </div>
@@ -277,7 +291,7 @@ h1 {
       
       </div>
 
-      <div class="carousel-caption d-none d-md-block text-left" style="bottom: 20% !important; right: 60%; left: 0%;" id="gg">
+      <div class="carousel-caption d-none d-md-block text-left" style="bottom: 10% !important; right: 60%; left: 0%;" id="gg">
         <div class="col container grafica carousel-caption" id="0"></div>
       </div>
     
@@ -329,6 +343,20 @@ h1 {
       <script>
         // key - value
         // name - project
+
+        function desc() {
+          var project = document.getElementById("Project").value;
+          console.log(project);
+          var desc = document.getElementById("description");
+          if(project == 'TechFest'){
+            desc.innerHTML = "TechFest - to reach high school students to promote STEAM (Science, Tech, Engineering, Arts, Math)";
+          } else if (project == 'HopeTech') {
+            desc.innerHTML = "HopeTech - to reach communities that are underserved by technology currently (with focus on senior adults)";
+          }
+          
+         
+        }
+
         var uniqueNames = {};
 
         var names = [
