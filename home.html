@@ -396,7 +396,7 @@ h1 {
           for (i = 0; i < third_clean.length - 5; i += 6) { 
             console.log(third_clean[i+4])
             if (names.includes(third_clean[i+4]))	
-              uniqueNames[third_clean[i]] = third_clean[i+4]
+              uniqueNames[third_clean[i+2]] = third_clean[i+4]
           }
 
           Object.entries(uniqueNames).forEach(([key, value]) => {
