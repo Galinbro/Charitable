@@ -5,114 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+
     <title>Charitable</title>
 
-  <!-- Start style.css -->
     <style>
-      
-      html, body {
+      body, html {
         max-width: 100%;
         overflow-x: hidden;
         font-family: 'Poppins', sans-serif;
+        height: 100%
       }
-
-
-      img {
-        width: 50%;
-        padding: 20px 0 20px 20px;
+      #gg {
+      opacity: 0;
+      -webkit-transition: all 1.4s ease-in-out;
+      -moz-transition: all 1.4s ease-in-out;
+      -ms-transition: all 1.4s ease-in-out;
+      -o-transition: all 1.4s ease-in-out;
+      transition: all 1.4s ease-in-out;
       }
-
-      h1 {
-        color:#FFF;
-        font-weight:bold;
-        text-align:center;
-        margin-top:55px;
-        letter-spacing: 10px;
-        font-weight: 700;
-      }
-
-      .column {
-        float: left;
-        width: 50%;
-        padding: 10px;
-      }
-
-      .row {
-        margin: 0px;
-      }
-
-      /* Clear floats after the columns */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-
-      .card {
-        margin: 0 10px 0 10px;
-      }
-
-      .grafica {
-        width: 70vh;
-        
-        padding-left: 0px;
-        
-        /* margin: 34px 36px 0 0; */
-      }
-
-      .form-control {
-        border-radius: .4em;
-        /* border-color: #0066A1; */
-        border-width: 0px; 
-        background-color: #b2d9eed7;
-        border-color: #b2d9eed7;
-      }
-
-      .select {
-        width: 50%;
-        padding-left: 0px;
-      }
-      .justify-content-center{
-        margin-top: 33px;
-      }
-
-      .btn {
-        height: 35px;
-        font-size: inherit;
-        padding-top: 4px;
-      }
-
-      .form {
-        background-color: rgba(0,102,161,0.5);
-        
-        transition: 2s ease;
-      }
-
-        
-        .form:hover {
-          border-top-left-radius: 0.8em;
-          border-bottom-left-radius: 0.8em;
-          transition: 1s ease;
-          -webkit-transform: scale(1.03);
-          -ms-transform: scale(1.03);
-          transform: scale(1.03);
-          
-        }
-
-      .typewriter {
-        padding-left: 15px;  
-      }
-    </style>
-  <!-- end style.css -->
-
-  <!-- Start form style and animationa -->
-    <style>
-      body, html {
-        height: 100%;
-        margin: 0;
-      }
-      
       .bg {
         /* The image used */
         background-image: url("https://atos.net/wp-content/uploads/2018/06/atos-btn-nl-abf-1400x500px.jpg");
@@ -200,11 +111,94 @@
         100% {
           transform: translateY(0);
         }
-      } 
-    </style>
-  <!-- End form style and animationa -->
+      }
+     
+img {
+  width: 50%;
+  padding: 20px 0 20px 20px;
+}
 
-<!-- Start ignite script before load -->
+h1 {
+  color:#FFF;
+  font-weight:bold;
+  text-align:center;
+  margin-top:55px;
+  letter-spacing: 10px;
+  font-weight: 700;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row {
+  margin: 0px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  margin: 0 10px 0 10px;
+}
+
+.grafica {
+  width: 70vh;
+  
+  padding-left: 0px;
+
+}
+
+.form-control {
+  border-radius: .4em;
+  /* border-color: #0066A1; */
+  border-width: 0px; 
+  background-color: #b2d9eed7;
+  border-color: #b2d9eed7;
+}
+
+.select {
+  width: 50%;
+  padding-left: 0px;
+}
+.justify-content-center{
+  margin-top: 33px;
+}
+
+.btn {
+  height: 35px;
+  font-size: inherit;
+  padding-top: 4px;
+}
+
+.form {
+  background-color: rgba(0,102,161,0.5);
+  
+  transition: 2s ease;
+}
+
+  
+  .form:hover {
+    border-top-left-radius: 0.8em;
+    border-bottom-left-radius: 0.8em;
+    transition: 1s ease;
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+    
+  }
+
+.typewriter {
+  padding-left: 15px;  
+}
+    </style>
+    <!-- Start ignite script before load -->
   <script>
     data = [];
 
@@ -226,41 +220,37 @@
     }
   </script>
 <!-- End ignite script before load -->
-</head>
+  </head>
   
   <body style="background-color:#0066A1;">
 
-  <!-- Content page -->
-  <!-- Start image top -->
     <div id="wrapper_top">
-    <!-- Logo -->
       <div id="#content"
           style="position: absolute;z-index: 2;color: #ffffff;">
         <img src="https://atos.net/wp-content/themes/atos/images/atos-logo-white-menu-bar.png" alt="">
       </div>
-    <!-- End logo -->
-
-    <!-- Start Form & title  -->
-      <div class="form carousel-caption d-none d-md-block text-left" style="bottom: 50% !important; right: 0%; left: 50%;" id="carousel_content">
-      <!-- Start title -->
+      
+      
+      
+      <div class="form carousel-caption d-none d-md-block text-left" style="bottom: 50% !important; right: 0%; left: 50%;">
+        
+        
         <div class="typewriter">
           <h3>Charitable</h3>
         </div>
-      <!-- End title -->
+        
         <div id="bar" style="width: 100%; height: 2.5px; background: white;"></div>
-
-        <!-- Start Form -->
-        <div class="updow" style="margin-top: 20px;">
-          
-          
+        
+        <div class="updow" style="margin-top: 20px;">  
           <div class="row mt-10">
+            
             <div class="col">
               <div class="form-group">
-                <label for="Name">Name:</label>
-                <input type="text" class="form-control" id="Name" placeholder="Your name">
+                <label for="Name">Email:</label>
+                <input type="email" class="form-control" id="Name" placeholder="Enter your email" style="width: 90%;">
               </div>
             </div>
-            <div class="col"></div>
+            
           </div>
           <div class="row">
             <div class="form-group col">
@@ -269,43 +259,49 @@
                 <option selected disabled>Select an option:</option>
                 <option value="HopeTech">Hope Tech</option>
                 <option value="TechFest">Tech Fest</option>
-                <option value="Party">Party</option>
               </select>
               
             </div>
             <div class="col justify-content-center">
               <button type="submit" class="btn btn-outline-light btn-lg" id="confirmation">Register</button>
             </div>
-          </div>
-          <div class="row justify-content-center" style="margin-top: 0px !important; margin-bottom: -20px;">
-            <button type="button" class="btn btn-outline-light btn-lg btn-block" data-toggle="collapse" data-target="#demo" id="toggle_colapse"><i class="fas fa-angle-down"></i></button>
-            <div id="demo" class="collapse">
-              <div class="row">
-                <div class="col container grafica justify-content-center" id="0">
-                </div>
-              </div>  
+            <div class="col justify-content-center" style="right: 16%;">
+              <button type="submit" class="btn btn-outline-light btn-lg" id="show">Show graph</button>
             </div>
           </div>
-        </div>
-      <!-- End form -->
+
+
+          
       </div>
-    <!-- End form & title-->
-
-
-    <!-- Start image bot -->
-      <div id="wrapper_bottom"></div>
-    <!-- End image bot -->
-    </div>
-  <!-- End image top -->
-  <!-- End content page -->
       
-    <!-- Start Confirmation modal -->
+      
+      </div>
+
+      <div class="carousel-caption d-none d-md-block text-left" style="bottom: 20% !important; right: 60%; left: 0%;" id="gg">
+        <div class="col container grafica carousel-caption" id="0"></div>
+      </div>
+    
+  
+
+      
+        
+
+    
+      <div id="wrapper_bottom"></div>
+    </div>
+      
+      
+<!--
+
+    Confirmation modal
+
+-->
       <div class="modal fade" id="confirmationModal">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
 
             <div class="modal-body">
-              <h3 style="text-align:center;">Are you sure your name is <span id="nameConfirmation"></span>? </h3>
+              <h3 style="text-align:center;">Are you sure your email is <span id="nameConfirmation"></span>? </h3>
               <br>
               <div class="row justify-content-center">
                 <div class="col-4">
@@ -316,19 +312,23 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
-    <!-- End modal -->
 
+
+  
       <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" ></script>
       
-    <!-- Start igniteProgressScript.js -->
+      <!-- Start igniteProgressScript.js -->
       <script>
+        // key - value
+        // name - project
         var uniqueNames = {};
 
         var names = [
@@ -387,7 +387,7 @@
         function drawElements(ind, person){
 
           var rowFirst = document.createElement('div');
-          rowFirst.className = "row";
+          rowFirst.className = "row mt-3 justify-content-center";
           
 
           var card = document.createElement('div');
@@ -407,6 +407,7 @@
 
           container.appendChild(row);
           body.appendChild(container);
+          // card.appendChild(header);
           card.appendChild(body);
           rowFirst.appendChild(card);
 
@@ -418,11 +419,10 @@
           
           var col = document.createElement('div');
           col.className = "col"
-          col.style.position = "relative"
 
           var canvas = document.createElement('canvas');
           canvas.id = id;
-
+          canvas.setAttribute("height", "350");
           col.appendChild(canvas);
 
           document.getElementById(names[ind]).appendChild(col);
@@ -436,18 +436,20 @@
           console.log(data)
           var densityData = {
             label: '# Igniters',
-            data: [data["Hope_Tech"], data['Tech_Fest'], data['Party']],
+            data: [data["Hope_Tech"], data['Tech_Fest']],
             backgroundColor: 'rgba(178, 217, 238, 0.84)'
             };
 
           chart = new Chart(document.getElementById(id), {
               type: 'bar',
               data: {
-              labels: ["Hope Tech", "Tech Fest", "Party"],
+              labels: ["Hope Tech", "Tech Fest"],
               datasets: [densityData],
               
             },
             options: {
+              responsive: true,
+              maintainAspectRatio: false,
               scales: {
                 yAxes: [{
                   ticks: {
@@ -492,35 +494,45 @@
             data[value] = data[value] + 1
           });
           console.log(data)
-          chart.data.datasets[0].data = [data["Hope_Tech"], data['Tech_Fest'], data['Party']]
+          chart.data.datasets[0].data = [data["Hope_Tech"], data['Tech_Fest']]
           chart.update();  
         }
+
 
       </script>
     <!-- End igniteProgressScript.js -->
 
-    <!-- Start action btns & variables -->
+    <!-- action btns & variables -->
       <script>
-        let form = document.getElementById("1");
-        let navbar = document.getElementById("navbar");;
-        let graph = document.getElementById("0");
-        let btn_again = document.getElementById("again");
-        let carousel = document.getElementById("wrapper_top");
+        var errorMsg = "";
+        let submitBtn = document.getElementById("confirmation");
 
-        var toogle = true
-        $("#toggle_colapse").click(function(){
-          console.log("clic")
-          if (toogle)
-            $('#carousel_content').css('bottom', '15%');
-          else
-            $('#carousel_content').css('bottom', '50%');
-          toogle = !toogle
+        $('#Project').change(function(){
+          submitBtn.style.display = 'block';
         })
-      </script>
-    <!-- Start action btns & variables -->
 
-    <!--  Start Save and confirmation -->
+        function validateEmail(email) {
+          const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(email);
+        }
+      </script>  
+    <!--  Save and confirmation -->
+
       <script type="text/javascript">
+
+        // show or hide graph
+        $("#show").click(function(){
+          let graph = document.getElementById("gg");
+          let btn = document.getElementById("show");
+          if ($(graph).css('opacity') == 0){
+            $(graph).css('opacity', 1);
+            $(btn).html("Hide graph");
+          } 
+          else {
+            $(graph).css('opacity', 0);
+            $(btn).html("Show graph");
+          }
+        })
 
         $("#Save").click(function(){
           $("#Save").attr("disabled",true)
@@ -531,12 +543,10 @@
             var project = "Hope_Tech"
           }else if (project == "TechFest") {
             var project = "Tech_Fest"
-          }else if (project == "Party") {
-            var project = "Party"
           }
           var Completed_Date = new Date();
 
-          if ((Name != null) && (project != null)) {
+          if ((Name != null && Name.replace(/\s/g, '') != "" && validateEmail(Name)) && (project != null)) {
             var url = 'https://script.google.com/macros/s/AKfycbz3CCefH_vusIwDE6SFIfyBZs0WxfIzhqEw4JGufoz3lpZm2xA/exec'
             var jqxhr = $.ajax({
               url: url,
@@ -561,14 +571,22 @@
 
                   document.getElementById('Name').value = ""
                   document.getElementById('Project').selectedIndex = 0
-                
+                  
+              
+                  console.log("clic")
                   updatePie()
                   
                 });
               }
             })
           }else {
-            swal("ERROR!", "You need to complete all the fields", "error");
+            if (project == null && (Name == null || Name.replace(/\s/g, '') == "" || validateEmail(Name)))
+              errorMsg = "Please complete all the fields "
+            else if (project == null)
+              errorMsg = "Please select a project to participate";
+            else
+              errorMsg = "Please enter a valid email"
+            swal("ERROR!", errorMsg, "error");
             $("#Save").attr("disabled",false)
           }
 
@@ -585,22 +603,25 @@
             var project = "Hope_Tech"
           }else if (project == "Practical") {
             var project = "Tech_Fest"
-          }else if (project == "SoftSkill") {
-            var project = "Party"
           }
 
-          if ((Name != null) && (project != null)) {
+          if ((Name != null && Name.replace(/\s/g, '') != "") && (project != null)) {
             $("#nameConfirmation").html(Name)
             $("#confirmationModal").modal("toggle")
           }else {
-            swal("ERROR!", "You need to complete all the fields", "error")
+            if (project == null && (Name == null || Name.replace(/\s/g, '') == "" || validateEmail(Name)))
+              errorMsg = "Please complete all the fields "
+            else if (project == null)
+              errorMsg = "Please select a project to participate";
+            else
+              errorMsg = "Please enter a valid email"
+            swal("ERROR!", errorMsg, "error");
           }
 
           return false
         })
       </script>
-    <!--  End Save and confirmation -->
-      <!-- Start graphs -->
+      <!--  graphs -->
       <script type="text/javascript">
 
         
@@ -616,9 +637,8 @@
         })
       
       </script>
-    <!-- End graphs -->
-    
-    <!-- Start handmade carousel -->
+
+      <!-- handmade carousel -->
       <script id="jsbin-javascript">
         // Just a help to change the background-image
         var changeImage = function(id, image){
@@ -656,8 +676,7 @@
           
             var refreshIntervalId = setInterval(changeBackground, 5000);
           });
-      </script>
-    <!-- End handmade carousel -->
+        </script>
   </body>
 </html>
 <html><head><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"><meta name="Robots" content="NOINDEX " /></head><body></body>
