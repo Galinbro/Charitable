@@ -232,7 +232,7 @@ h1 {
       
       
       
-      <div class="form carousel-caption d-none d-md-block text-left" style="bottom: 50% !important; right: 0%; left: 50%;">
+      <div class="form carousel-caption d-none d-md-block text-left" style="bottom: 20% !important; right: 0%; left: 50%;">
         
         
         <div class="typewriter">
@@ -242,7 +242,18 @@ h1 {
         <div id="bar" style="width: 100%; height: 2.5px; background: white;"></div>
         
         <div class="updow" style="margin-top: 20px;">  
-          <div class="row mt-10">
+          <div class="row">
+            <div class="col" style="width: 50%;">
+              <label for="fname">First name:</label>
+              <input type="text" class="form-control" id="fname" placeholder="Enter your first name"> 
+            </div>
+            <div class="col" style="width: 50%;">
+              <label for="lname">Last name:</label>
+              <input type="text" class="form-control" id="lname" placeholder="Enter your last name" > 
+            </div>
+           
+          </div>
+          <div class="row mt-10" style="padding-top: 10px;">
             
             <div class="col">
               <div class="form-group">
@@ -252,24 +263,37 @@ h1 {
             </div>
             
           </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="Interest">Area of interest:</label>
+                <input type="email" class="form-control" id="Interest" placeholder="writing, social media, website, etc" style="width: 90%;">
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="form-group col">
               <label for="Project">Project:</label>
-              <select class="form-control " name="Project" id="Project">
+              <select class="form-control " name="Project" id="Project" onchange="desc()">
                 <option selected disabled>Select an option:</option>
                 <option value="HopeTech">Hope Tech</option>
                 <option value="TechFest">Tech Fest</option>
               </select>
               
             </div>
+            
             <div class="col justify-content-center">
-              <button type="submit" class="btn btn-outline-light btn-lg" id="confirmation">Register</button>
-            </div>
-            <div class="col justify-content-center" style="right: 16%;">
-              <button type="submit" class="btn btn-outline-light btn-lg" id="show">Show graph</button>
+              <div class="row">
+                <button type="submit" class="btn btn-outline-light btn-lg" id="confirmation">Register</button>
+              <button type="submit" class="btn btn-outline-light btn-lg ml-2" id="show">Show graph</button>
+              </div>
             </div>
           </div>
-
+          <div class="row" id="pdesc" style="width: 70%;">
+            <p id="description" style="padding-left:20px; font-weight: bold;">Select a project to view its description</p>
+          </div>
 
           
       </div>
@@ -277,7 +301,7 @@ h1 {
       
       </div>
 
-      <div class="carousel-caption d-none d-md-block text-left" style="bottom: 20% !important; right: 60%; left: 0%;" id="gg">
+      <div class="carousel-caption d-none d-md-block text-left" style="bottom: 10% !important; right: 60%; left: 0%;" id="gg">
         <div class="col container grafica carousel-caption" id="0"></div>
       </div>
     
@@ -329,12 +353,23 @@ h1 {
       <script>
         // key - value
         // name - project
+
+        function desc() {
+          var project = document.getElementById("Project").value;
+          console.log(project);
+          var desc = document.getElementById("description");
+          if(project == 'TechFest'){
+            desc.innerHTML = "TechFest - to reach high school students to promote STEAM (Science, Tech, Engineering, Arts, Math)";
+          } else if (project == 'HopeTech') {
+            desc.innerHTML = "HopeTech - to reach communities that are underserved by technology currently (with focus on senior adults)";
+          }
+        }
+
         var uniqueNames = {};
 
         var names = [
                 'Hope_Tech',
                 'Tech_Fest',
-                'Party',
               ];
 
         var data = {};
@@ -345,7 +380,6 @@ h1 {
           var dict = {};
           data['Hope_Tech'] = 0;
           data['Tech_Fest'] = 0;
-          data['Party'] = 0;
 
         }
 
@@ -358,10 +392,11 @@ h1 {
           var third_clean = second_clean[0].split(",");
           
           third_clean[0] = third_clean[0].replace(/\s/g, '');
-
-          for (i = 0; i < third_clean.length - 2; i += 3) { 
-            if (names.includes(third_clean[i+1]))	
-              uniqueNames[third_clean[i]] = third_clean[i+1]
+          console.log(third_clean)
+          for (i = 0; i < third_clean.length - 5; i += 6) { 
+            console.log(third_clean[i+4])
+            if (names.includes(third_clean[i+4]))	
+              uniqueNames[third_clean[i]] = third_clean[i+4]
           }
 
           Object.entries(uniqueNames).forEach(([key, value]) => {
@@ -536,7 +571,10 @@ h1 {
 
         $("#Save").click(function(){
           $("#Save").attr("disabled",true)
+          var nombre = $("#fname").val()
+          var apellido = $("#lname").val()
           var Name = $("#Name").val()
+          var Interest = $("#Interest").val()          
           var project = $("#Project").val()
 
           if (project == "HopeTech") {
@@ -546,14 +584,17 @@ h1 {
           }
           var Completed_Date = new Date();
 
-          if ((Name != null && Name.replace(/\s/g, '') != "" && validateEmail(Name)) && (project != null)) {
+          if ((Name != null && Name.replace(/\s/g, '') != "" && validateEmail(Name)) && (Interest != null && Interest.replace(/\s/g, '') != "") && (project != null) && (nombre != null && nombre.replace(/\s/g, '') != "") && (apellido != null && apellido.replace(/\s/g, '') != "")) {
             var url = 'https://script.google.com/macros/s/AKfycbz3CCefH_vusIwDE6SFIfyBZs0WxfIzhqEw4JGufoz3lpZm2xA/exec'
             var jqxhr = $.ajax({
               url: url,
               method: "GET",
               dataType: "json",
               data: {
-                Name:Name,
+                Name:nombre,
+                Last_Name:apellido,
+                Email:Name,
+                Interest:Interest,
                 Project:project,
                 Submit_Date:Completed_Date
               },
@@ -580,10 +621,16 @@ h1 {
               }
             })
           }else {
-            if (project == null && (Name == null || Name.replace(/\s/g, '') == "" || validateEmail(Name)))
+            if ((Name == null && Name.replace(/\s/g, '') == "" && validateEmail(Name)) && (Interest == null && Interest.replace(/\s/g, '') == "") && (project == null) && (nombre == null && nombre.replace(/\s/g, '') == "") && (apellido == null && apellido.replace(/\s/g, '') == "")) 
               errorMsg = "Please complete all the fields "
+            else if (Interest == null && Interest.replace(/\s/g, '') == "")
+              errorMsg = "Please fill you area of interest";
             else if (project == null)
               errorMsg = "Please select a project to participate";
+            else if (nombre == null && nombre.replace(/\s/g, '') == "")
+              errorMsg = "Please fill you name";
+            else if (apellido == null && apellido.replace(/\s/g, '') == "")
+              errorMsg = "Please fill you las name";
             else
               errorMsg = "Please enter a valid email"
             swal("ERROR!", errorMsg, "error");
@@ -596,7 +643,11 @@ h1 {
 
 
         $("#confirmation").click(function(){
+          
+          var nombre = $("#fname").val()
+          var apellido = $("#lname").val()
           var Name = $("#Name").val()
+          var Interest = $("#Interest").val()          
           var project = $("#Project").val()
 
           if (project == "Technical") {
@@ -605,16 +656,13 @@ h1 {
             var project = "Tech_Fest"
           }
 
-          if ((Name != null && Name.replace(/\s/g, '') != "") && (project != null)) {
+          if ((Name != null && Name.replace(/\s/g, '') != "" && validateEmail(Name)) && (Interest != null && Interest.replace(/\s/g, '') != "") && (project != null) && (nombre != null && nombre.replace(/\s/g, '') != "") && (apellido != null && apellido.replace(/\s/g, '') != "")) {
             $("#nameConfirmation").html(Name)
             $("#confirmationModal").modal("toggle")
           }else {
-            if (project == null && (Name == null || Name.replace(/\s/g, '') == "" || validateEmail(Name)))
-              errorMsg = "Please complete all the fields "
-            else if (project == null)
-              errorMsg = "Please select a project to participate";
-            else
-              errorMsg = "Please enter a valid email"
+            errorMsg = "Please complete all the fields "
+            if (validateEmail(Name) == false)
+            errorMsg = errorMsg + " and a valid email"
             swal("ERROR!", errorMsg, "error");
           }
 
